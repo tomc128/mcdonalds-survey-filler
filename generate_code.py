@@ -82,3 +82,15 @@ def generate_code(store_id: int, order_id: int, purchased: datetime, visit_type:
     code += encode(get_check_digit(code))
 
     return f'{code[0:4]}-{code[4:8]}-{code[8:12]}'
+
+
+if __name__ == "__main__":
+    import random
+
+    store_id = 155  # random store
+    purchase_date = datetime(2024, 9, 1, 13, 47, 52)  # random date
+    order_id = random.randint(0, 99)
+
+    generated_code = generate_code(store_id, order_id, purchase_date)
+
+    print(f'Generated code: {generated_code}')
